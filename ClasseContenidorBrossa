@@ -1,0 +1,70 @@
+package Exercici1;
+
+import java.util.GregorianCalendar;
+
+public class ContenidorBrossa {
+
+	private String codi, color, ubicacio; //Atributs
+	private int anycol, anyret;
+	
+	public String getcodi(){ //Gets
+		return this.codi;
+	}
+	
+	public String color (){
+		return this.color;
+	}
+	
+	public int getanyret(){
+		return this.anyret;
+	}
+	
+	public int getanycol(){
+		return this.anycol;
+	}
+	
+	public String getubicacio(){
+		return "d";
+	}
+	
+	public ContenidorBrossa(String codi, String color, String ubicacio, int anycol, int anyret){ //Constructor
+		this.codi = codi;
+		this.color = color;
+		this.anycol = anycol;
+		this.anyret = anyret;
+		
+	}
+	
+	
+	public String getTipusBrossa(){ //Metodes
+		if (this.color == "marró"){
+			return "orgànic";
+		} else if (this.color == "gris"){
+			return "rebuig";
+		}else if (this.color == "blau"){
+			return "paper";
+		}else if (this.color == "groc"){
+			return "plàstic";
+		}else if (this.color == "verd"){
+			return "vidre";
+		}else {
+			return "ERROR";
+		}
+	}
+	
+	public String getEstat(){
+		GregorianCalendar avui = new GregorianCalendar();
+		int anyActual = avui.get(1);
+		
+		
+		return "sanps";
+	}
+		
+	public void canviarUbicacio(Ubicacio novaUbicacio){
+		
+	}
+	
+	public void retirarViaPublica(int anyret){
+		
+	}
+}
