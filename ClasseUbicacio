@@ -1,0 +1,48 @@
+package Exercici1;
+
+public class Ubicacio {
+
+	private String nomVia; //Atributs
+	private int numVia;
+	private boolean cruilla;
+	
+	private String contenidors;
+	private int numContenidors;
+	private static final int  MAX_CONTENIDORS = 5;
+	
+	public String getnomVia(){ //Gets
+		return this.nomVia;
+	}
+	
+	public int getnumVia(){
+		return this.numVia;
+	}
+	
+	public int getnumContenidors(){
+		return this.numContenidors;
+	}
+	
+	public String getcontenidors(){
+		return this.contenidors;
+	}
+	
+	public Ubicacio (String nomVia, int numVia, boolean cruilla){ //Constructor
+		this.nomVia = nomVia;
+		this.numVia = numVia;
+		this.cruilla = cruilla;
+	}
+	
+	
+	
+	
+	public void afegirContenidor(){
+		
+	}
+	
+	public void treureContenidor(){
+		
+	}
+	
+	
+	
+}
