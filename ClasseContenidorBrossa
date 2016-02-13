@@ -1,38 +1,38 @@
 package Exercici1;
-
 import java.util.GregorianCalendar;
 
 public class ContenidorBrossa {
 
-	private String codi, color, ubicacio; //Atributs
+	private String codi, color; //Atributs
+	Ubicacio ubicacio;
 	private int anycol, anyret;
 	
-	public String getcodi(){ //Gets
-		return this.codi;
+	public String getcodi(){ // Mètode d'accés als atributs
+		return codi;
 	}
 	
-	public String color (){
-		return this.color;
+	public String color (){ // Mètode d'accés als atributs
+		return color;
 	}
 	
-	public int getanyret(){
-		return this.anyret;
+	public int getanyret(){ // Mètode d'accés als atributs
+		return anyret;
 	}
 	
-	public int getanycol(){
-		return this.anycol;
+	public int getanycol(){ // Mètode d'accés als atributs
+		return anycol;
 	}
 	
-	public String getubicacio(){
-		return "d";
+	public Ubicacio getUbicacio(){ // Mètode d'accés als atributs
+		return null;
 	}
 	
-	public ContenidorBrossa(String codi, String color, String ubicacio, int anycol, int anyret){ //Constructor
+	public ContenidorBrossa(String codi, String color, Ubicacio ubicacio, int anycol, int anyret){ //Constructor
 		this.codi = codi;
 		this.color = color;
 		this.anycol = anycol;
 		this.anyret = anyret;
-		
+		this.ubicacio = ubicacio;
 	}
 	
 	
@@ -55,9 +55,13 @@ public class ContenidorBrossa {
 	public String getEstat(){
 		GregorianCalendar avui = new GregorianCalendar();
 		int anyActual = avui.get(1);
-		
-		
-		return "sanps";
+		if (anyActual - this.anycol >= 5){
+			return "Vell";
+		} else if (anyActual - this.anycol <= 3){
+			return "Nou";
+		} else {
+			return "Seminou";
+		}
 	}
 		
 	public void canviarUbicacio(Ubicacio novaUbicacio){
