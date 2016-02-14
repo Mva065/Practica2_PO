@@ -1,3 +1,3 @@
 # Practica2_PO
 
-┌∩┐(◕_◕)┌∩┐
+┌∩┐(◕_◕)┌∩┐    No tinc ni puta idea
