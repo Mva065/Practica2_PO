@@ -77,8 +77,8 @@ public class ContenidorBrossa {
 		GregorianCalendar avui = new GregorianCalendar();
 		int anyActual = avui.get(1);
 		Ubicacio u = null;
-		if (u.treureContenidor(c)){
+		/*if (u.treureContenidor(c)){
 			anyret = anyActual;
-		} this.anyret = anyret;
+		} this.anyret = anyret;*/
 		}
 	}
