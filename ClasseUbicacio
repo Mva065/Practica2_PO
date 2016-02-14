@@ -11,7 +11,7 @@ public class Ubicacio {
 	//private String contenidors;
 	private int numContenidors;
 	private static final int  MAX_CONTENIDORS = 5;
-	private ContenidorBrossa [] contenidors;
+	private ContenidorBrossa [] contenidors = new ContenidorBrossa [20]; 
 	
 	public String getnomVia(){ // Mètode d'accés als atributs
 		return nomVia;
@@ -39,17 +39,57 @@ public class Ubicacio {
 		return tCodi[i];
 	}
 	
+	public String ColorBrossa(int i){
+		String color = this.contenidors[i].getTipusBrossa();
+		return color;	
+	}
+	
 	public boolean afegirContenidor(ContenidorBrossa c){
-		
-		
-		
+		int cont = 0;
+		for (int i = 0; i < this.contenidors.length && cont == 0; i++){
+			if (this.contenidors[i] == null){
+				this.contenidors[i] = c;
+				cont++;
+			}}
 		return true;
+
+		/*for (int i = 0; i < this.contenidors.length; i++){
+			if (c.getcolor() == this.contenidors[i].getcolor()){
+				cont++;
+			}
+		} if (cont == 0){
+			for (int i = 0; i < this.contenidors.length && cont == 0; i++){
+				if (this.contenidors[i] == null){
+					this.contenidors[i] = c;
+					cont++;
+				}}
+			return true;
+		} else { 
+			return false;
+		}*/
+	}
+	
+	public String estatCont (int i){
+		if (this.contenidors[i].getEstat() == "Vell"){
+			return "Vell";
+		} else if (this.contenidors[i].getEstat() == "Nou"){
+			return "Nou";
+		} else if (this.contenidors[i].getEstat() == "Seminou"){
+			return "Seminou";
+		} else {
+			return "ERROR";
+		}
 	}
 	
 	public boolean treureContenidor(ContenidorBrossa c){
+		int cont = 0;
+		for (int j = 0; j < this.contenidors.length; j++){
+			if (c.getcodi() == this.contenidors[j].getcodi()){
+				this.contenidors[j] = this.contenidors[j+1];
+				cont++;
+			}} if (cont == 0){
+				return false;
+			} else {
 		return true;
-	}
-	
-	
-	
+		}}	
 }
