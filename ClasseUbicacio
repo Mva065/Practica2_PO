@@ -87,6 +87,7 @@ public class Ubicacio {
 			if (c.getcodi() == this.contenidors[j].getcodi()){
 				this.contenidors[j] = this.contenidors[j+1];
 				cont++;
+				this.numContenidors--;
 			}} if (cont == 0){
 				return false;
 			} else {
