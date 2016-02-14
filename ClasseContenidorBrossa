@@ -3,15 +3,15 @@ import java.util.GregorianCalendar;
 
 public class ContenidorBrossa {
 
-	private String codi, color; //Atributs
+	private String codi; //Atributs
 	Ubicacio ubicacio;
-	private int anycol, anyret;
+	private int anycol, anyret, color;
 	
 	public String getcodi(){ // Mètode d'accés als atributs
 		return codi;
 	}
 	
-	public String color (){ // Mètode d'accés als atributs
+	public int getcolor (){ // Mètode d'accés als atributs
 		return color;
 	}
 	
@@ -23,11 +23,8 @@ public class ContenidorBrossa {
 		return anycol;
 	}
 	
-	public Ubicacio getUbicacio(){ // Mètode d'accés als atributs
-		return null;
-	}
 	
-	public ContenidorBrossa(String codi, String color, Ubicacio ubicacio, int anycol, int anyret){ //Constructor
+	public ContenidorBrossa(String codi, int color, Ubicacio ubicacio, int anycol, int anyret){ //Constructor
 		this.codi = codi;
 		this.color = color;
 		this.anycol = anycol;
@@ -37,15 +34,16 @@ public class ContenidorBrossa {
 	
 	
 	public String getTipusBrossa(){ //Metodes
-		if (this.color == "marró"){
+		Ubicacio u = null;
+		if (this.color == 1){
 			return "orgànic";
-		} else if (this.color == "gris"){
+		} else if (this.color == 3){
 			return "rebuig";
-		}else if (this.color == "blau"){
+		}else if (this.color == 2){
 			return "paper";
-		}else if (this.color == "groc"){
+		}else if (this.color == 4){
 			return "plàstic";
-		}else if (this.color == "verd"){
+		}else if (this.color == 5){
 			return "vidre";
 		}else {
 			return "ERROR";
@@ -64,11 +62,23 @@ public class ContenidorBrossa {
 		}
 	}
 		
-	public void canviarUbicacio(Ubicacio novaUbicacio){
-		
+	public Ubicacio getUbicacio(){ 
+		return ubicacio;
 	}
 	
-	public void retirarViaPublica(int anyret){
-		
+	public void canviarUbicacio(ContenidorBrossa c, Ubicacio novaUbicacio){
+		Ubicacio u = null;
+		if (u.afegirContenidor(c)){
+			
+		}
 	}
-}
+	
+	public void retirarViaPublica(ContenidorBrossa c, int anyret){
+		GregorianCalendar avui = new GregorianCalendar();
+		int anyActual = avui.get(1);
+		Ubicacio u = null;
+		if (u.treureContenidor(c)){
+			anyret = anyActual;
+		} this.anyret = anyret;
+		}
+	}
