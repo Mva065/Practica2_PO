@@ -11,7 +11,7 @@ public class Ubicacio {
 	//private String contenidors;
 	private int numContenidors;
 	private static final int  MAX_CONTENIDORS = 5;
-	private ContenidorBrossa [] contenidors = new ContenidorBrossa [20]; 
+	private ContenidorBrossa [] contenidors = new ContenidorBrossa [50]; 
 	
 	public String getnomVia(){ // Mètode d'accés als atributs
 		return nomVia;
@@ -35,8 +35,8 @@ public class Ubicacio {
 	}
 	
 	public String getContenidors(int i){
-		String [] tCodi = {"EU-1234", "HD-6369", "PQ-1562", "TM-1101", "MC-1456", "LP-5463", "YL-6569", "FC-6666", "SN-3297", "HM-2448"};
-		return tCodi[i];
+		String tCodi = this.contenidors[i].getcodi();
+		return tCodi;
 	}
 	
 	public String ColorBrossa(int i){
@@ -45,15 +45,29 @@ public class Ubicacio {
 	}
 	
 	public boolean afegirContenidor(ContenidorBrossa c){
+		
+		/*boolean trobat = true;
+		for (int i = 0; i < numContenidors && !trobat; i++){
+			if(c.getcolor() == this.contenidors[i].getcolor())
+				trobat = false;
+			}
+		if (trobat){
+			this.contenidors[numContenidors] = c;
+			numContenidors++;
+		}
+			return trobat*/
+		
+		
+		
 		int cont = 0;
 		for (int i = 0; i < this.contenidors.length && cont == 0; i++){
 			if (this.contenidors[i] == null){
 				this.contenidors[i] = c;
 				cont++;
 			}}
-		return true;
+		return true; /*
 
-		/*for (int i = 0; i < this.contenidors.length; i++){
+		for (int i = 0; i < this.contenidors.length; i++){
 			if (c.getcolor() == this.contenidors[i].getcolor()){
 				cont++;
 			}
@@ -82,15 +96,39 @@ public class Ubicacio {
 	}
 	
 	public boolean treureContenidor(ContenidorBrossa c){
-		int cont = 0;
-		for (int j = 0; j < this.contenidors.length; j++){
-			if (c.getcodi() == this.contenidors[j].getcodi()){
-				this.contenidors[j] = this.contenidors[j+1];
+		
+		boolean trobat = false;
+		int indexContenidor = - 1;
+		
+		for (int i = 0; i < numContenidors && !trobat; i++){
+			if (c == contenidors[i]){
+				trobat = true;
+				indexContenidor = i;
+			}
+		}
+		
+		if (trobat){
+			this.contenidors[indexContenidor] = null;
+			for (int i = indexContenidor; i < numContenidors; i++) {
+				if(i == numContenidors-1){
+					contenidors[i] = null;
+				} else {
+					contenidors[i] = contenidors[i+1];
+				}
+			} numContenidors--;
+		}
+		
+		return trobat;
+		
+		/*int cont = 0;
+		for (int j = 0; j < this.contenidors.length - 1 ; j++){
+			if (c.getcodi() == "MC-1456"){
+				this.contenidors[2] = this.contenidors[3];
 				cont++;
-				this.numContenidors--;
 			}} if (cont == 0){
 				return false;
 			} else {
+				this.numContenidors--;
 		return true;
-		}}	
-}
+		}}	*/
+}}
