@@ -1,3 +1,3 @@
 # Practica2_PO
 
-┌∩┐(◕_◕)┌∩┐    PUTA PRACTICA DE MERDA ACABADA
+┌∩┐(◕_◕)┌∩┐    PUTA SESSIÓ DE MERDA ACABADA
