@@ -79,6 +79,6 @@ public class ContenidorBrossa {
 		Ubicacio u = null;
 		/*if (u.treureContenidor(c)){
 			anyret = anyActual;
-		} this.anyret = anyret;*/
+	} this.anyret = anyret;*/
 		}
 	}
