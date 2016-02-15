@@ -34,7 +34,6 @@ public class ContenidorBrossa {
 	
 	
 	public String getTipusBrossa(){ //Metodes
-		Ubicacio u = null;
 		if (this.color == 1){
 			return "orgànic";
 		} else if (this.color == 3){
@@ -67,18 +66,16 @@ public class ContenidorBrossa {
 	}
 	
 	public void canviarUbicacio(ContenidorBrossa c, Ubicacio novaUbicacio){
-		Ubicacio u = null;
-		if (u.afegirContenidor(c)){
-			
-		}
 	}
 	
-	public void retirarViaPublica(ContenidorBrossa c, int anyret){
-		GregorianCalendar avui = new GregorianCalendar();
-		int anyActual = avui.get(1);
-		Ubicacio u = null;
-		/*if (u.treureContenidor(c)){
-			anyret = anyActual;
-	} this.anyret = anyret;*/
+	public void retirarViaPublica(int i){
+		if (ubicacio.treureContenidor(this)){
+			ubicacio = null;
+			this.anyret = i;
 		}
+		
+	}
+	
+	
+	
 	}
