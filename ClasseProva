@@ -51,7 +51,7 @@ public static void main(String [] args){
 	System.out.println("> En la Ubicació, " + tNomVia[2] + " hi han: ");
 	for (int i = 0; i < ubicacio3.getnumContenidors(); i++){ 
 		System.out.print(i + 1 + ".");
-		System.out.println("El contenidor de Codi: " + ubicacio2.getContenidors(i) + " és de " +  ubicacio3.ColorBrossa(i) + " i " + ubicacio3.estatCont(i));
+		System.out.println("El contenidor de Codi: " + ubicacio3.getContenidors(i) + " és de " +  ubicacio3.ColorBrossa(i) + " i " + ubicacio3.estatCont(i));
 		int cont = 0;
 		for (int k = 0; k < contents.length && cont == 0; k++){
 		if (contents[k] == 0 && ubicacio3.estatCont(i) == "Vell"){
@@ -61,19 +61,23 @@ public static void main(String [] args){
 	
 	ContenidorBrossa [] con = {c0, c1, c2, c3, c4, c5, c6, c7, c8, c9};
 	System.out.println("Retirem de la via publica els contenidors vells, de codi: ");
-	for (int k = 0; k < contents.length && contents[k] != 0; k++){
-		System.out.println(ubicacio1.getContenidors(contents[k])); //Imprimim codi contenidor
-		} System.out.println();
+	
+	//for (int k = 0; k < 1 && contents[k] != 0; k++){
+		System.out.println(ubicacio1.getContenidors(2)); //Imprimim codi contenidor
+		//}
+	//for (int k = 0; k < contents.length && contents[k] != 0; k++){
+		System.out.println(ubicacio2.getContenidors(1)); //Imprimim codi contenidor
+		//} 
+	//for (int k = 0; k < contents.length && contents[k] != 0; k++){
+		System.out.println(ubicacio3.getContenidors(2)); //Imprimim codi contenidor
+		//} System.out.println();
 	
 	
 	for (int k = 0; k < contents.length && contents[k] != 0; k++){
 		ubicacio1.treureContenidor(con[contents[k]]);
-		/*if (ubicacio1.treureContenidor(con[contents[k]])){
-			int i = k;
-			while (i < con.length - 1){
-				con[i+1] = con[i];
-				i++;
-			}}*/}
+		ubicacio2.treureContenidor(con[contents[k]]);
+		ubicacio3.treureContenidor(con[contents[k]]);
+		}
 	
 	
 	System.out.println("> En la Ubicació, " + tNomVia[0] + " hi han: "); int l = 0;
