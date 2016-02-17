@@ -1,107 +1,148 @@
-package Exercici1;
+package Exercici2;
 public class Prova {
 public static void main(String [] args){
 	
-	String [] tNomVia = {"Carrer Rosselló", " Carrer Roger de Flor", "Carrer Grassot"}; //3 Carrers
+	String [] tNomVia = {"Carrer Rosselló", "Carrer Roger de Flor", "Carrer Grassot"}; //3 Carrers
 	int [] tNumVia = {123, 54, 78}; 
 	boolean [] tCruilla = {false, false, true};
 	
-	Ubicacio ubicacio1 = new Ubicacio(tNomVia[0], tNumVia [0], tCruilla[0], 4); //Creacions de les 3 Ubicacions
-	Ubicacio ubicacio2 = new Ubicacio(tNomVia[1], tNumVia [1], tCruilla[1], 3); 
-	Ubicacio ubicacio3 = new Ubicacio(tNomVia[2], tNumVia [2], tCruilla[2], 3);
 	
-	ContenidorBrossa c0 = new ContenidorBrossa("EU-1234", 1 , ubicacio1, 2012, 0); //Creació dels Contenidors
-	ContenidorBrossa c1 = new ContenidorBrossa("HD-6369", 2 , ubicacio1, 2015, 0);
-	ContenidorBrossa c2 = new ContenidorBrossa("PQ-1562", 3 , ubicacio1, 2011, 0);
-	ContenidorBrossa c3 = new ContenidorBrossa("TM-1101", 4 , ubicacio1, 2015, 0);
-	ContenidorBrossa c4 = new ContenidorBrossa("MC-1456", 2 , ubicacio2, 2014, 0);
-	ContenidorBrossa c5 = new ContenidorBrossa("LP-5463", 5 , ubicacio2, 2009, 0);
-	ContenidorBrossa c6 = new ContenidorBrossa("KO-1346", 1 , ubicacio2, 2016, 0);
-	ContenidorBrossa c7 = new ContenidorBrossa("FC-6666", 3 , ubicacio3, 2012, 0);
-	ContenidorBrossa c8 = new ContenidorBrossa("SN-3297", 4 , ubicacio3, 2015, 0);
-	ContenidorBrossa c9 = new ContenidorBrossa("HM-2448", 5 , ubicacio3, 2011, 0);
+	Ubicacio ubicacio1 = new Ubicacio(tNomVia[0], tNumVia [0], tCruilla[0]); Ubicacio.numUbicacions++;
+	Ubicacio ubicacio2 = new Ubicacio(tNomVia[1], tNumVia [1], tCruilla[1]); Ubicacio.numUbicacions++;
+	Ubicacio ubicacio3 = new Ubicacio(tNomVia[2], tNumVia [2], tCruilla[2]); Ubicacio.numUbicacions++;
 	
-	int [] contents = new int [10]; //Magatzem per contenidors vells
-	ubicacio1.afegirContenidor(c0); ubicacio1.afegirContenidor(c1); ubicacio1.afegirContenidor(c2); ubicacio1.afegirContenidor(c3);
-	int contvells1 = 0, contvells2 = 0, contvells3 = 0; //Contadors de contenidors vells en cada ubicació
+	ContenidorBrossa c0 = new ContenidorBrossa(ubicacio1); //Creació dels Contenidors 4, 3, 4
+	ContenidorBrossa c1 = new ContenidorBrossa(ubicacio1);
+	ContenidorBrossa c2 = new ContenidorBrossa(ubicacio1);
+	ContenidorBrossa c3 = new ContenidorBrossa(ubicacio1);
+	ContenidorBrossa c4 = new ContenidorBrossa(ubicacio2);
+	ContenidorBrossa c5 = new ContenidorBrossa(ubicacio2);
+	ContenidorBrossa c6 = new ContenidorBrossa(ubicacio2);
+	ContenidorBrossa c7 = new ContenidorBrossa(ubicacio3);
+	ContenidorBrossa c8 = new ContenidorBrossa(ubicacio3);
+	ContenidorBrossa c9 = new ContenidorBrossa(ubicacio3);
+	ContenidorBrossa c10 = new ContenidorBrossa(ubicacio3);
+
+	
+	while (!ubicacio1.afegirContenidor(c0)){
+		c0 = new ContenidorBrossa(ubicacio1);
+	}
+	while (!ubicacio1.afegirContenidor(c1)){
+		c1 = new ContenidorBrossa(ubicacio1);
+	}
+	while (!ubicacio1.afegirContenidor(c2)){ //UBI 1
+		c2 = new ContenidorBrossa(ubicacio1);
+	}
+	while (!ubicacio1.afegirContenidor(c3)){
+		c3 = new ContenidorBrossa(ubicacio1);
+	}
+	
+	
+	while (!ubicacio2.afegirContenidor(c4)){
+		c4 = new ContenidorBrossa(ubicacio2);
+	}
+	while (!ubicacio2.afegirContenidor(c5)){   //UBI 2
+		c5 = new ContenidorBrossa(ubicacio2);
+	}
+	while (!ubicacio2.afegirContenidor(c6)){
+		c6 = new ContenidorBrossa(ubicacio2);
+	}
+	
+	
+	while (!ubicacio3.afegirContenidor(c7)){
+		c7 = new ContenidorBrossa(ubicacio3);
+	}
+	while (!ubicacio3.afegirContenidor(c8)){	//UBI 3
+		c8 = new ContenidorBrossa(ubicacio3);
+	}
+	while (!ubicacio3.afegirContenidor(c9)){
+		c9 = new ContenidorBrossa(ubicacio3);
+	}
+	while (!ubicacio3.afegirContenidor(c10)){
+		c10 = new ContenidorBrossa(ubicacio3);
+	}
+	
+	ContenidorBrossa [] con1 = {c0, c1, c2, c3};
+	ContenidorBrossa [] con2 = {c4, c5, c6};
+	ContenidorBrossa [] con3 = {c7, c8, c9, c10};
+	
+	String [] vidre = new String [3]; //Magatzem per contenidors vells
+	int cont = 0;
+	int cont2 = 0;
 	
 	System.out.println("> En la Ubicació, " + tNomVia[0] + " hi han: ");
 	for (int i = 0; i < ubicacio1.getnumContenidors(); i++){ 
 		System.out.print(i + 1 + ".");
-		System.out.println("El contenidor de Codi: " + ubicacio1.getContenidors(i) + " és de " + ubicacio1.ColorBrossa(i) + " i " + ubicacio1.estatCont(i));
-		int cont = 0;
-		for (int k = 0; k < contents.length && cont == 0; k++){
-		if (contents[k] == 0 && ubicacio1.estatCont(i) == "Vell"){ //Guardem els contenidor vells en una taula
-			contents[k] = i;
-			contvells1++; cont++;
+		System.out.println("El contenidor de Codi: " + ubicacio1.getContenidors(i) + " és de " + con1[i].getTipusBrossa());
+		for (int k = 0; k < con1.length && cont == 0; k++){
+		if (con1[k].getTipusBrossa() == "vidre"){
+			vidre[cont2] = tNomVia[0] + " " + tNumVia[0];
+			cont++; cont2++;
 		}}} System.out.println();
-	
-	ubicacio2.afegirContenidor(c4); ubicacio2.afegirContenidor(c5); ubicacio2.afegirContenidor(c6);
-	System.out.println("> En la Ubicació, " + tNomVia[1] + " hi han: "); contvells2 = contvells1;
-	for (int i = 0; i < ubicacio2.getnumContenidors(); i++){ 
+
+	System.out.println("> En la Ubicació, " + tNomVia[1] + " hi han: "); cont = 0;
+	for (int i = 0; i < ubicacio2.getnumContenidors(); i++){
 		System.out.print(i + 1 + ".");
-		System.out.println("El contenidor de Codi: " + ubicacio2.getContenidors(i) + " és de " + ubicacio2.ColorBrossa(i) + " i " + ubicacio2.estatCont(i));
-		int cont = 0;
-		for (int k = 0; k < contents.length && cont == 0; k++){
-		if (contents[k] == 0 &&  ubicacio2.estatCont(i) == "Vell"){
-			contents[k] = i;
-			contvells2++; cont++;
+		System.out.println("El contenidor de Codi: " + ubicacio2.getContenidors(i) + " és de " + con2[i].getTipusBrossa());
+		for (int k = 0; k < con2.length && cont == 0; k++){
+			if (con2[k].getTipusBrossa() == "vidre"){ 
+				vidre[cont2] = tNomVia[1] + " " + tNumVia[1];
+				cont++; cont2++;
 		}}} System.out.println();
 	
-	ubicacio3.afegirContenidor(c7); ubicacio3.afegirContenidor(c8); ubicacio3.afegirContenidor(c9);
-	System.out.println("> En la Ubicació, " + tNomVia[2] + " hi han: "); contvells3 = contvells2;
+	System.out.println("> En la Ubicació, " + tNomVia[2] + " hi han: "); cont = 0;
 	for (int i = 0; i < ubicacio3.getnumContenidors(); i++){ 
 		System.out.print(i + 1 + ".");
-		System.out.println("El contenidor de Codi: " + ubicacio3.getContenidors(i) + " és de " +  ubicacio3.ColorBrossa(i) + " i " + ubicacio3.estatCont(i));
-		int cont = 0;
-		for (int k = 0; k < contents.length && cont == 0; k++){
-		if (contents[k] == 0 && ubicacio3.estatCont(i) == "Vell"){
-			contents[k] = i;
-			contvells3++; cont++;
+		System.out.println("El contenidor de Codi: " + ubicacio3.getContenidors(i) + " és de " +  con3[i].getTipusBrossa());
+		for (int k = 0; k < con3.length && cont == 0; k++){
+			if (con3[k].getTipusBrossa() == "vidre"){ 
+				vidre[cont2] = tNomVia[2] + " " + tNumVia[2];
+				cont++; cont2++;
 		}}} System.out.println();
 				
-	ContenidorBrossa [] con1 = {c0, c1, c2, c3}; // --> Ubicacio 1
-	ContenidorBrossa [] con2 = {c4, c5, c6}; //--> Ubicacio 2				Agrupació de Contenidors segons la seva ubicacio
-	ContenidorBrossa [] con3 = {c7, c8, c9}; // --> Ubicacio 3
+	System.out.println("Retirem de la via publica el segon i el cinquè contenidor");
 	
-	System.out.println("Retirem de la via publica els contenidors vells, de codis:");
-			
-	for (int k = 0; k < contvells1; k++){
-		System.out.println(ubicacio1.getContenidors(contents[k]));
-		ubicacio1.treureContenidor(con1[contents[k]]);
-		if (ubicacio1.treureContenidor(con1[contents[k]]));
-		con1[contents[k]].retirarViaPublica(2016);
-		}
-	for (int k = contvells1; k < contvells2; k++){
-		System.out.println(ubicacio2.getContenidors(contents[k]));
-		ubicacio2.treureContenidor(con2[contents[k]]);
-		if (ubicacio2.treureContenidor(con1[contents[k]]));
-		con2[contents[k]].retirarViaPublica(2016);
-	}
-	for (int k = contvells2; k < contvells3; k++){
-		System.out.println(ubicacio3.getContenidors(contents[k]));
-		ubicacio3.treureContenidor(con3[contents[k]]);
-		if (ubicacio2.treureContenidor(con1[contents[k]]));
-		con3[contents[k]].retirarViaPublica(2016);
-	} System.out.println();
-	
-	
+	ubicacio1.treureContenidor(c1); 	//Segon Contenidor
+	if(ubicacio1.treureContenidor(c1));
+	c1.retirarViaPublica(2016);
+	ubicacio2.treureContenidor(c4); 	//Cinquè Contenidor
+	if(ubicacio2.treureContenidor(c4));
+	c4.retirarViaPublica(2016);
+	System.out.println();
+				
 	System.out.println("> En la Ubicació, " + tNomVia[0] + " hi han: ");
 	for (int i = 0; i < ubicacio1.getnumContenidors(); i++){ 
 		System.out.print(i + 1 + ".");
-		System.out.println("El contenidor de Codi: " + ubicacio1.getContenidors(i) + " és de " + ubicacio1.ColorBrossa(i) + " i " + ubicacio1.estatCont(i));
+		System.out.println("El contenidor de Codi: " + ubicacio1.getContenidors(i) + " és de " + con1[i].getTipusBrossa() + " i " + ubicacio1.estatCont(i));
 	} System.out.println();
 	
 
 	System.out.println("> En la Ubicació, " + tNomVia[1] + " hi han: ");
 	for (int i = 0; i < ubicacio2.getnumContenidors(); i++){ 
 		System.out.print(i + 1 + ".");
-		System.out.println("El contenidor de Codi: " + ubicacio2.getContenidors(i) + " és de " + ubicacio2.ColorBrossa(i) + " i " + ubicacio2.estatCont(i));
+		System.out.println("El contenidor de Codi: " + ubicacio2.getContenidors(i) + " és de " + con2[i].getTipusBrossa() + " i " + ubicacio2.estatCont(i));
 	} System.out.println();
 	
 	System.out.println("> En la Ubicació, " + tNomVia[2] + " hi han: ");
 	for (int i = 0; i < ubicacio3.getnumContenidors(); i++){ 
 		System.out.print(i + 1 + ".");
-		System.out.println("El contenidor de Codi: " + ubicacio3.getContenidors(i) + " és de " +  ubicacio3.ColorBrossa(i) + " i " + ubicacio3.estatCont(i));
+		System.out.println("El contenidor de Codi: " + ubicacio3.getContenidors(i) + " és de " +  con3[i].getTipusBrossa() + " i " + ubicacio3.estatCont(i));
 	} System.out.println();
-}}
+	
+	ubicacionsvidre(vidre); System.out.println();
+	System.out.println("> Numero d'Ubicacions creades: " + Ubicacio.numUbicacions);
+	System.out.println();
+	System.out.println("> Numero de containers Creats: ");
+	System.out.println("S'han creat " + ContenidorBrossa.numMarrons + " de color Marró");
+	System.out.println("S'han creat " + ContenidorBrossa.numGrisos + " de color Gris");
+	System.out.println("S'han creat " + ContenidorBrossa.numBlaus + " de color Blau");
+	System.out.println("S'han creat " + ContenidorBrossa.numGrocs + " de color Groc");
+	System.out.println("S'han creat " + ContenidorBrossa.numVerds + " de color Verd");
+	
+	}
+
+	private static void ubicacionsvidre(String [] vidre){
+		System.out.println("Les ubicacions que contenen contenidors de vidre són: ");
+		for (int i = 0; i < vidre.length && vidre[i] != null; i++){
+			System.out.println(vidre[i]);
+			}}	}
